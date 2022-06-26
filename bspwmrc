@@ -3,15 +3,20 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor eDP-1 -d I II III IV V
 bspc monitor HDMI-1 -d  VI VII VIII IX 
-bspc config border_width         5
-bspc config window_gap           6
+bspc config border_width         1 
+bspc config window_gap           0
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+
+bspc config normal_border_color "#484848"
+bspc config focused_border_color "#008000"
+bspc config urgent_border_color "#B58900"
+bspc config presel_border_color "#26E2FF"
+
 feh --bg-fill --randomize ~/imgs/wallpaper/* &
 ~/.config/polybar/./launch.sh --forest &
-alacritty &
-xrandr --output eDP-1 --brightness 1.3 &
+xrandr --output eDP-1 --brightness 1.4 &
 sudo /home/ivanse/.config/bspwm/setb.sh 1.1 &
 systemctl --user enable --now ulauncher.service &
 systemctl start iwd &
@@ -19,4 +24,5 @@ systemctl start iwd &
 # iwctl --passphrase 0146628794 station wlan0 connect "Fibertel WiFi033 5.8Ghz" &
 # iwctl --passphrase 4464794 station wlan0 connect "Speedy-juan123"
 iwctl --passphrase 28364429 station wlan0 connect "sanmartin1"
+alacritty &
 neofetch &
