@@ -26,3 +26,4 @@ systemctl start iwd &
 iwctl --passphrase 28364429 station wlan0 connect "sanmartin1"
 alacritty &
 neofetch &
+ncspot &
